@@ -1,11 +1,6 @@
-<h3>To Do List</h3>
+<h3>Two Way Binding</h3>
 
-<input type="text"   placeholder="Enter The Task" #todo/>
+<input type="text" [(ngModel)] = "name" placeholder="Enter Something">
+<br><br>
+{{name}}
 
-<br> <br>
-
-<button type="submit" (click)="SubmitTask(todo.value)">submit</button>
-
-<ul *ngFor="let item of list">
-    <li>{{item.name}} <button (click)="removeItem(item.id)">Remove</button></li>
-</ul>

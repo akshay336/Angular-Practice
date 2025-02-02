@@ -1,6 +1,14 @@
-<h3>Two Way Binding</h3>
+<h3>Reactive Form</h3>
 
-<input type="text" [(ngModel)] = "name" placeholder="Enter Something">
-<br><br>
-{{name}}
+<form [formGroup]="loginForm" (ngSubmit)="submitForm()">
 
+<span *ngIf="values?.invalid && values?.touched" style="color: red;">This is mandatory field</span>
+<br>
+  <input type="text" placeholder="Enter name" formControlName="name">
+  <br><br>
+  <span *ngIf="pass?.invalid && pass?.touched" style="color: red;">This is mandatory field</span>
+  <br>
+  <input type="password" placeholder="Enter password" formControlName="password">
+  <br><br>
+  <button type="submit" [disabled]="values?.invalid">Submit</button>
+</form>
